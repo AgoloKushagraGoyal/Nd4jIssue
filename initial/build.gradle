@@ -36,9 +36,9 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
 
     // https://mvnrepository.com/artifact/org.deeplearning4j/deeplearning4j-nlp
-    compile 'org.deeplearning4j:deeplearning4j-nlp:1.0.0-beta'
-    compile 'org.nd4j:nd4j-native-platform:1.0.0-beta'
-    compile 'org.nd4j:nd4j-backends:1.0.0-beta'
+    compile 'org.deeplearning4j:deeplearning4j-nlp:1.0.0-beta2'
+    compile 'org.nd4j:nd4j-native-platform:1.0.0-beta2'
+    compile 'org.nd4j:nd4j-backends:1.0.0-beta2'
 
     // SLF4J, Logback, & Sentry logging dependencies
     compile 'org.slf4j:slf4j-api:1.7.13'
