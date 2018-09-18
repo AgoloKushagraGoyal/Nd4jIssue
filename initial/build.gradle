@@ -22,11 +22,35 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    // exclude other logging frameworks
+    compile.exclude group: 'commons-logging'
+    compile.exclude group: 'log4j'
+    compile.exclude module: 'slf4j-log4j12'
+}
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+
+    // https://mvnrepository.com/artifact/org.deeplearning4j/deeplearning4j-nlp
+    compile 'org.deeplearning4j:deeplearning4j-nlp:1.0.0-beta'
+    compile 'org.nd4j:nd4j-native-platform:1.0.0-beta'
+    compile 'org.nd4j:nd4j-backends:1.0.0-beta'
+
+    // SLF4J, Logback, & Sentry logging dependencies
+    compile 'org.slf4j:slf4j-api:1.7.13'
+    compile 'com.savoirtech.logging:slf4j-json-logger:2.0.2'
+
+    runtime 'ch.qos.logback:logback-core:1.1.2'
+    runtime 'ch.qos.logback:logback-classic:1.1.2'
+    runtime 'net.kencochrane.raven:raven-logback:6.0.0'
+    // route other logging framework's output to SLF4J via bridges
+    runtime 'org.slf4j:jcl-over-slf4j:1.7.13'
+    runtime 'org.slf4j:log4j-over-slf4j:1.7.13'
+
     testCompile("junit:junit")
 }
 
